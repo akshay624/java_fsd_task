@@ -1,0 +1,72 @@
+
+1. 
+d.push("welcome");
+        d.push("hllo");
+        d.push("alpha");
+        System.out.println(d);
+        
+        System.out.println(d.pop());
+        System.out.println(d.pop());
+
+
+Ans:LIFO
+public class StackExample {
+
+	public static void main(String[] args) {
+
+		Stack<String> d = new Stack<>();
+		d.push("welcome");
+        d.push("hllo");
+        d.push("alpha");
+        System.out.println(d);
+        
+        System.out.println(d.pop());
+        System.out.println(d.pop());
+
+        System.out.println(d);
+		
+	}
+
+}
+output:
+d -> [welcome, hllo, alpha]
+first element popped -> alpha[LIFO]
+second element popped - > hllo[LIFO]
+Remaining elements of d ->  [welcome]
+
+
+2.
+Ans:
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		Map<String,String> m = new HashMap<>();
+		m.put("1", "Java");
+		m.put("2", "Oops");
+		m.put("3", "Collections");
+		
+		System.out.println(m);
+ 
+		for(Map.Entry me : m.entrySet())
+		{
+			System.out.println(">>>"+me);
+			System.out.println("Key ="+me.getKey()+", Value ="+me.getValue());
+		}
+	}
+
+} 
+
+3. can i add list into another list?
+Ans:Yes
+	List<String> ls = new ArrayList<>();
+			List<String> l = new ArrayList<>();
+			l.addAll(ls);
+
+4. can i add a list into set or map?
+Ans:Yes	
+-Set<String> s = new HashSet<>();
+			s.addAll(l);
+	
+-HashMap<String,String> hm = new HashMap<>();
+			hm.keySet().addAll(l);
