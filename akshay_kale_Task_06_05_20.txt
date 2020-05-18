@@ -104,14 +104,14 @@ public class Department extends Employee {
 	public static void main(String args[]) {
 		Department d = new Department("Akshay", "Thane", 24, "IT", 1);
 		Employee e = new Employee("Akshay", "Thane", 24);
-		System.out.println(d);
+                System.out.println(getEmployee());		
+                System.out.println(d);
 		System.out.println(e);
 	}
 }
 
 Output:
-inside static block
-Inside static method of department
+inside department
 Department [d_name=IT, capacity=1]
 Employee [name=Akshay, city=Thane, age=24]
 
