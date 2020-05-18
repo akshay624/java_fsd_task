@@ -70,10 +70,8 @@ public class Employee {
 		this.age = age;
 	}
 
-	static {
-
-		System.out.println("inside static block");
-
+	public static String getEmployee() {
+     return "inside employee";
 	}
 
 	@Override
@@ -94,9 +92,8 @@ public class Department extends Employee {
 		this.capacity = capacity;
 	}
 
-	static {
-
-		System.out.println("Inside static method of department");
+	public static String getEmployee {
+	return "inside department";
 	}
 
 	@Override
