@@ -1,0 +1,124 @@
+1. notepad, os,users , implement interface concept
+Ans:
+
+
+public interface operatingSystem {
+	
+	public String getOperatingSystem();
+
+	public static int getNoOfUsers() {
+		return 1;
+	}
+	
+}
+
+
+public interface notepad extends operatingSystem {
+
+	public String getNotePad();
+
+	public static int getNoOfUsers() {
+		return 2;
+
+	}
+
+}
+
+
+public class Users implements operatingSystem, notepad {
+
+	@Override
+	public String getNotePad() {
+		return "Notepad for Windows";
+	}
+
+	@Override
+	public String getOperatingSystem() {
+		return "Windows";
+	}
+
+	public static void main(String[] args) {
+
+		Users u = new Users();
+		System.out.println("No. of users for notepad:"+notepad.getNoOfUsers());
+		System.out.println("No. of users for OS"+operatingSystem.getNoOfUsers());
+		System.out.println(u.getNotePad());
+		System.out.println(u.getOperatingSystem());
+
+	}
+}
+Output:
+No. of users for notepad:2
+No. of users for OS:1
+Notepad for Windows
+Windows
+
+2. can we override static method of a interface
+Ans: No
+
+public interface operatingSystem {
+	
+	public String getOperatingSystem();
+
+	public static int getNoOfUsers() {
+		return 1;
+	}
+	
+}
+
+
+public interface notepad extends operatingSystem {
+
+	public String getNotePad();
+
+	public static int getNoOfUsers() {
+		return 2;
+
+	}
+
+}
+
+
+public class Users implements operatingSystem, notepad {
+
+	@Override
+	public String getNotePad() {
+		return "Notepad for Windows";
+	}
+
+	@Override
+	public String getOperatingSystem() {
+		return "Windows";
+	}
+
+	public static void main(String[] args) {
+
+		Users u = new Users();
+		System.out.println(notepad.getNoOfUsers());
+		System.out.println(operatingSystem.getNoOfUsers());
+		System.out.println(u.getNotePad());
+		System.out.println(u.getOperatingSystem());
+
+	}
+}
+
+
+3. interface I
+	{
+
+	}
+	interface I2{}
+	class A{}
+
+	class B extends A implements I2
+
+
+B ob=new B();
+
+ sysout(ob instanceof B);
+ sysout(ob instanceof A);
+ 
+Ans:
+ O/P:
+ true
+ true
