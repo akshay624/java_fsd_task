@@ -1,0 +1,224 @@
+1. constructor invocation in inheritance hierarchy
+Ans:
+
+public class Employee {
+
+	String name;
+	String city;
+	int age;
+
+	public Employee(String name, String city, int age) {
+		super();
+		this.name = name;
+		this.city = city;
+		this.age = age;
+	}
+
+}
+
+
+public class Department extends Employee {
+
+	String d_name;
+	int capacity;
+
+	public Department(String name, String city, int age, String d_name, int capacity) {
+		super(name, city, age);
+		this.d_name = d_name;
+		this.capacity = capacity;
+	}
+
+}
+
+
+2. difference between no arg constructor and default constructor
+Ans:
+Default constructor:
+When we write a class without any constructor then at compilation time java compiler creates a default constructor in our class.
+No-args constructor:
+Constructor with no arguments is known as no-argument constructor.
+Example:
+No-args constructor:
+Student(){
+super();
+System.out.println("No args constructor")
+}
+
+Default constructor:
+// If no constructor defined then java compiler creates one with first statement as super() 
+Student(){
+super();
+}
+
+3. if my base class method is static 
+can i override that method in sub class
+Ans:
+We can have two methods as static in super class as well as sub class but that is not overriding as the static method belongs to that particular class.
+So overriding is not possible of static method.
+Example:
+
+public class Employee {
+
+	String name;
+	String city;
+	int age;
+
+	public Employee(String name, String city, int age) {
+		super();
+		this.name = name;
+		this.city = city;
+		this.age = age;
+	}
+
+	static {
+
+		System.out.println("inside static block");
+
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", city=" + city + ", age=" + age + "]";
+	}
+}
+
+
+public class Department extends Employee {
+
+	String d_name;
+	int capacity;
+
+	public Department(String name, String city, int age, String d_name, int capacity) {
+		super(name, city, age);
+		this.d_name = d_name;
+		this.capacity = capacity;
+	}
+
+	static {
+
+		System.out.println("Inside static method of department");
+	}
+
+	@Override
+	public String toString() {
+		return "Department [d_name=" + d_name + ", capacity=" + capacity + "]";
+	}
+
+	public static void main(String args[]) {
+		Department d = new Department("Akshay", "Thane", 24, "IT", 1);
+		Employee e = new Employee("Akshay", "Thane", 24);
+		System.out.println(d);
+		System.out.println(e);
+	}
+}
+
+Output:
+inside static block
+Inside static method of department
+Department [d_name=IT, capacity=1]
+Employee [name=Akshay, city=Thane, age=24]
+
+
+
+4. 
+class A {}, whats the base class for it?
+Ans: java.lang.Object
+
+5.
+String s="hello";
+sysout(s instanceof String);
+sysout(s instanceof Object);
+Object b=s; //possible and this is upcasting
+Integer i=90;
+sysout(i instanceof Integer);
+sysout(i instanceof Object);
+if it prints true the u check
+Ans: true
+Object b=i; //possible and this is upcasting
+class  Empl - obj of Empl is emp
+class Admin extends Empl - obj of admin ad
+
+	sysout(ad instanceof Admin)
+	sysout(ad instanceof Empl)
+	sysout(ad instanceof Object)
+Ans:true
+a. tv, Dvd, Laptop if these are subclasses what can be their logical correct base class name
+Ans:ElectronicAppliances
+b. implement dyn poly for the same scenario
+Ans:
+
+
+public interface ElectronicAppliances {
+
+	
+	public String applianceName();
+	public int noOfItems();
+}
+
+
+public class Tv implements ElectronicAppliances {
+
+	@Override
+	public String applianceName() {
+		return "Television";
+	}
+
+	@Override
+	public int noOfItems() {
+		return 5;
+	}
+
+}
+
+
+public class Laptop implements ElectronicAppliances{
+
+	@Override
+	public String applianceName() {
+		return "Laptop";
+	}
+
+	@Override
+	public int noOfItems() {
+		return 4;
+	}
+
+}
+
+
+public class Dvd implements ElectronicAppliances {
+
+	@Override
+	public String applianceName() {
+		return "Dvd";
+	}
+
+	@Override
+	public int noOfItems() {
+		return 2;
+	}
+
+}
+
+
+public class Products {
+
+	public static void main(String[] args) {
+
+		Dvd d = new Dvd();
+		Laptop l = new Laptop();
+		Tv t = new Tv();
+		System.out.println("Appliance name:" + d.applianceName() + "\n" + "Available" + d.noOfItems());
+		System.out.println("Appliance name:" + l.applianceName() + "\n" + "Available" + l.noOfItems());
+		System.out.println("Appliance name:" + t.applianceName() + "\n" + "Available" + t.noOfItems());
+
+	}
+
+}
+Output:
+Appliance name:Dvd
+Available2
+Appliance name:Laptop
+Available4
+Appliance name:Television
+Available5
